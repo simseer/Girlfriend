@@ -1,5 +1,4 @@
-/* style.css */
-
+/* Background gradient and styling */
 body {
     margin: 0;
     padding: 0;
@@ -7,6 +6,7 @@ body {
     background: linear-gradient(to right, #ff9a9e, #fad0c4);
     text-align: center;
     color: white;
+    overflow-x: hidden;
 }
 
 .container {
@@ -24,6 +24,7 @@ p {
     margin: 0 auto 30px auto;
 }
 
+/* Gallery styling */
 .gallery {
     margin-top: 30px;
 }
@@ -33,14 +34,60 @@ p {
     margin: 15px;
     border-radius: 15px;
     box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
-    transition: transform 0.3s;
+    transition: transform 0.5s, opacity 0.5s;
 }
 
 .gallery img:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
+    opacity: 0.9;
 }
 
+/* Footer */
 .footer {
     margin-top: 40px;
     font-size: 1em;
+}
+
+/* Hearts animation */
+.hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(-45deg);
+    animation: float 5s linear forwards;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 10px;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(-45deg); opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(-45deg); opacity: 0; }
 }

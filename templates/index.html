@@ -6,22 +6,39 @@
 </head>
 <body>
 
-    <div class="container">
-        <h1>Hi My Love ❤️</h1>
-        <p class="message">
-            Every moment with you is my favorite memory.
-            Thank you for being in my life.
-            I love you forever 💕
-        </p>
+<div class="hearts"></div>
 
-        <div class="gallery">
-            {% for photo in photos %}
-                <img src="{{ url_for('static', filename=photo) }}" alt="Our Memory">
-            {% endfor %}
-        </div>
+<div class="container">
+    <h1>Hi My Love ❤️</h1>
+    <p>
+    Every moment with you is my favorite memory.<br>
+    You make my life brighter every single day ❤️
+    </p>
 
-        <p class="footer">Made with ❤️ by Your loving Simar urf your monkey</p>
+    <div class="gallery">
+        {% for photo in photos %}
+            <img src="{{ url_for('static', filename=photo) }}" alt="Our Memory">
+        {% endfor %}
     </div>
+
+    <p class="footer">Made with ❤️ by your love (Simar)</p>
+</div>
+
+<script>
+    // Floating hearts animation
+    const hearts = document.querySelector('.hearts');
+
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = 2 + Math.random() * 3 + 's';
+        hearts.appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+    }
+
+    setInterval(createHeart, 300);
+</script>
 
 </body>
 </html>
