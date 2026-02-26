@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For My Love ❤️</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Hi My Love ❤️</h1>
+        <p class="message">
+            Every moment with you is my favorite memory.
+            Thank you for being in my life.
+            I love you forever 💕
+        </p>
+
+        <div class="gallery">
+            {% for photo in photos %}
+                <img src="{{ url_for('static', filename=photo) }}" alt="Our Memory">
+            {% endfor %}
+        </div>
+
+        <p class="footer">Made with ❤️ by Your loving Simar urf your monkey</p>
+    </div>
+
+</body>
+</html>
